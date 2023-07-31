@@ -13,7 +13,7 @@ function card(props){
     >
         <h3> {title}</h3>
         <p>{description}</p>
-        <img src={img} alt="Card" id="image_card" style={{}}/>
+        <img src={img} alt="Card" id="image_card" />
     </div>
 }
 
