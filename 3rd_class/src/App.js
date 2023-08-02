@@ -1,5 +1,7 @@
 import './App.css';
+import { useState } from 'react';
 import Card from './components/cad.js'
+import CityCard from './components/cityCard'
 
 function App() {
   var message = "Hi its my first application"
@@ -21,7 +23,6 @@ function App() {
       id: 3,
       title: "Third card",
       description: "Third card description",
-      img: "https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-logo-png-images-are-download-crazypng-21.png"
     },
     {
       id: 4,
@@ -30,12 +31,45 @@ function App() {
       img: "https://1000logos.net/wp-content/uploads/2020/08/MongoDB-Logo.jpg"
     }
   ]
+
+  const [city , setCity] = useState({
+    name:"lahore",
+    description:"City of food",
+    img:"https://cdn.pixabay.com/photo/2018/04/20/20/04/lahore-fort-3336909_640.png"
+  })
+  const clicHandler = ()=>{
+    setCity((oldState)=>{
+      return {
+        ...oldState,
+        name:"Peshawar",
+        description:"City Of Flower",
+        img:"https://alsadatmarketing.com/wp-content/uploads/2022/11/PESHAWAR.png"
+      }
+    })
+    console.log("I am Clicked!!!!")
+  }
+  const resetHandler = (newObj)=>{
+    setCity({
+      name: newObj.defaulttitle,
+      description:newObj.defaultdescription,
+      img: newObj.defaultimg
+    })
+  }
+
   return (
       <>
-      <h1 className='heading'>Hello its me waleed</h1>
+      {/* <h1 className='heading'>Hello its me waleed</h1>
       <p>{message}</p>
       <button style={{backgroundColor:"olive"}}>Click me</button><br/>
-      {cards.map((card) => <Card key = {card.id} title ={card.title} description={card.description} img = {card.img}/>)}
+      {cards.map((card) => <CityCard key = {card.id} title ={card.title} description={card.description} img = {card.img}/>)} */}
+
+      {/* <Card>
+        <img src={city.img}/>
+        <h3>{city.name}</h3>
+        <p>{city.description}</p>
+        <button onClick={clicHandler}>Click Me</button>
+      </Card> */}
+      <CityCard title={city.name} description={city.description} img={city.img} changename={clicHandler} resetHandler = {resetHandler} />
       </>
   );
 }
