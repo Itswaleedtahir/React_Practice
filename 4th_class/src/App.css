@@ -9,7 +9,7 @@
   text-align: center;
 }
 .mt-3{
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .card-image{
   width: 100px;
@@ -44,4 +44,11 @@ input {
   border-radius: 5px;
   border: none;
   margin-left: 5px;
+}
+input:focus {
+  border-color: purple !important;
+  outline: none;
+}
+.input-error {
+  border-color: red;
 }
