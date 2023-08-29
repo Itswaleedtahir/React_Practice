@@ -1,13 +1,14 @@
 import "../assets/css/Navbar.css"
+import { NavLink   } from "react-router-dom"
 
 function Navbar(){
     return <div className="navbar">
             <h3>Brand Logo</h3>
             <div>
                 <ul>
-                    <li ><a href="">Home</a></li>
-                    <li ><a href="">Users</a></li>
-                    <li ><a  href="">Shops</a></li>
+                    <li><NavLink to={"/"}>Home</NavLink></li>
+                    <li><NavLink to={"/users"}>users</NavLink></li>
+                    <li><NavLink to={"/shops"}>Shops</NavLink></li>
                 </ul>
             </div>
     </div> 
